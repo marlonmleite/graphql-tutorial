@@ -1,5 +1,5 @@
 {
-  "name": "tutorial-server",
+  "name": "graphql-tutorial-server",
   "version": "1.0.0",
   "description": "A simple GraphQL server",
   "main": "server.js",

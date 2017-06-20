@@ -1,6 +1,5 @@
-import React from 'react';
-
-import AddMessage from './AddMessage';
+import React from 'react'
+import AddMessage from './AddMessage'
 
 const MessageList = ({ messages }) => {
   return (
@@ -12,6 +11,7 @@ const MessageList = ({ messages }) => {
       )}
       <AddMessage />
     </div>
-  );
-};
-export default (MessageList);
+  )
+}
+
+export default MessageList

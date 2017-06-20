@@ -1,7 +1,7 @@
-import React from 'react';
-import { gql, graphql } from 'react-apollo';
-import { channelDetailsQuery } from './ChannelDetails';
-import { withRouter } from 'react-router';
+import React from 'react'
+import { gql, graphql } from 'react-apollo'
+import { withRouter } from 'react-router'
+import { channelDetailsQuery } from './ChannelDetails'
 
 const AddMessage = ({ mutate, match }) => {
   const handleKeyUp = (evt) => {
@@ -17,8 +17,8 @@ const AddMessage = ({ mutate, match }) => {
           addMessage: {
             text: evt.target.value,
             id: Math.round(Math.random() * -1000000),
-            __typename: 'Message',
-          },
+            __typename: 'Message'
+          }
         },
         update: (store, { data: { addMessage } }) => {
           // Read the data from the cache for this query.
@@ -27,9 +27,9 @@ const AddMessage = ({ mutate, match }) => {
             variables: {
               channelId: match.params.channelId,
             }
-          });
+          })
           // Add our Message from the mutation to the end.
-          data.channel.messages.push(addMessage);
+          data.channel.messages.push(addMessage)
           // Write the data back to the cache.
           store.writeQuery({
             query: channelDetailsQuery,
@@ -37,10 +37,11 @@ const AddMessage = ({ mutate, match }) => {
               channelId: match.params.channelId,
             },
             data
-          });
-        },
-      });
-      evt.target.value = '';
+          })
+        }
+      })
+
+      evt.target.value = ''
     }
   };
 
@@ -62,11 +63,7 @@ const addMessageMutation = gql`
       text
     }
   }
-`;
+`
+const AddMessageWithMutation = graphql(addMessageMutation)(withRouter(AddMessage))
 
-
-const AddMessageWithMutation = graphql(
-  addMessageMutation,
-)(withRouter(AddMessage));
-
-export default AddMessageWithMutation;
+export default AddMessageWithMutation

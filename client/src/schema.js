@@ -1,11 +1,11 @@
-export const typeDefs = `
+export const typeDefs = /* GraphQL */ `
 
-type Channel {
-  id: ID!
-  name: String
-}
+  type Channel {
+    id: ID!
+    name: String
+  }
 
-type Query {
-  channels: [Channel]
-}
-`;
+  type Query {
+    channels: [Channel]
+  }
+`
